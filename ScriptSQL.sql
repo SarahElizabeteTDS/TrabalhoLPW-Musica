@@ -1,0 +1,13 @@
+CREATE DATABASE musica;
+USE musica;
+
+CREATE TABLE musicas
+(
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(50) NOT NULL,
+    genero VARCHAR(1) NOT NULL,
+    artista VARCHAR(50) NOT NULL,
+    linkImagem VARCHAR(255) NOT NULL,
+    corCard VARCHAR(1) NOT NULL,
+    linkMusica VARCHAR(255) NOT NULL
+);
