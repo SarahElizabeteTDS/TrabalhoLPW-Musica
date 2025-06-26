@@ -8,8 +8,8 @@
 </head>
 <body>
     
-    <h1>Cards</h1>
-    <div class="container">
+    <h1 class="titulo-cards">Cards</h1>
+    <div class="container-cards">
         <?php
             define('BASE_PATH', __DIR__);
 
@@ -20,10 +20,10 @@
 
             foreach($arrayMus as $mus)
             {?>
-                <div class="card" style="background-color: <?= $mus->getCorCardDetalhado()?>;">
+                <div class="card" style="background: linear-gradient(145deg, <?= $mus->getCorCardDetalhado() ?>, #1e1e1e);">
                     <img src="<?= $mus->getImagem() ?>" alt="Imagem da música">
                     <h2>Título: <?= $mus->getTitulo() ?></h2>
-                    <p>Id: <?= $mus->getId() ?></p>
+                    <p>ID: <?= $mus->getId() ?></p>
                     <p>Gênero: <?= $mus->getGeneroDetalhado() ?></p>
                     <p>Artista: <?= $mus->getArtista() ?></p>
                     <a href="<?= $mus->getLinkMusica() ?>">Link da Música</a>
