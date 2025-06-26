@@ -115,103 +115,116 @@ if(isset($_POST["titulo"]) || isset($_POST["genero"]) || isset($_POST["artista"]
 </head>
 <body>
 
-    <!-- AQUI É A PARTE DO FORMULÁRIO -->
-    <h1>Formulário</h1>
+<div class="form-e-listagem">
 
-    <form action="" method="POST">
-        <div style="margin-bottom: 10px;">
-            <label for="titulo">Título: </label>
-            <input type="text" name="titulo" id="titulo" value="<?= $titulo ?>"/>
-        </div>
+    <div class="form-container">
+
+        <!-- AQUI É A PARTE DO FORMULÁRIO -->
+        <h1>Formulário</h1>
+
+        <form action="" method="POST">
+            <div style="margin-bottom: 10px;">
+                <label for="titulo">Título: </label>
+                <input type="text" name="titulo" id="titulo" value="<?= $titulo ?>"/>
+            </div>
 
 
-        <div style="margin-bottom: 10px;">
-            <label for="genero">Gênero: </label>
-            <select name="genero" id="genero">
-                <option value="">---Selecione---</option>
-                <option value="S" <?=$genero == "S"?"selected":""?>>Sertanejo</option>
-                <option value="R"<?=$genero == "R"?"selected":""?>>Rock</option>
-                <option value="G"<?=$genero == "G"?"selected":""?>>Gospel</option>
-                <option value="O"<?=$genero == "O"?"selected":""?>>Outro</option>
-            </select>
-        </div>
+            <div style="margin-bottom: 10px;">
+                <label for="genero">Gênero: </label>
+                <select name="genero" id="genero">
+                    <option value="">---Selecione---</option>
+                    <option value="S" <?=$genero == "S"?"selected":""?>>Sertanejo</option>
+                    <option value="R"<?=$genero == "R"?"selected":""?>>Rock</option>
+                    <option value="G"<?=$genero == "G"?"selected":""?>>Gospel</option>
+                    <option value="O"<?=$genero == "O"?"selected":""?>>Outro</option>
+                </select>
+            </div>
 
-        <div style="margin-bottom: 10px;">
-            <label for="artista">Artista: </label>
-            <input type="text" name="artista" id="artista" value="<?= $artista ?>"/>
-        </div>
+            <div style="margin-bottom: 10px;">
+                <label for="artista">Artista: </label>
+                <input type="text" name="artista" id="artista" value="<?= $artista ?>"/>
+            </div>
 
-        <div style="margin-bottom: 10px;">
-            <label for="linkImagem">Link da Imagem: </label>
-            <input type="text" name="linkImagem" id="linkImagem" value="<?= $linkImagem ?>"/>
-        </div>
+            <div style="margin-bottom: 10px;">
+                <label for="linkImagem">Link da Imagem: </label>
+                <input type="text" name="linkImagem" id="linkImagem" value="<?= $linkImagem ?>"/>
+            </div>
 
-        <div style="margin-bottom: 10px;">
-            <label for="corCard">Cor do Card: </label>
-            <select name="corCard" id="corCard">
-                <option value="">---Selecione---</option>
-                <option value="G" <?=$corCard == "G"?"selected":""?>>Verde</option>
-                <option value="R"<?=$corCard == "R"?"selected":""?>>Vermelho</option>
-                <option value="Y"<?=$corCard == "Y"?"selected":""?>>Amarelo</option>
-                <option value="P"<?=$corCard == "P"?"selected":""?>>Roxo</option>
-                <option value="A"<?=$corCard == "A"?"selected":""?>>Aleatório</option>
-            </select>
-        </div>
+            <div style="margin-bottom: 10px;">
+                <label for="corCard">Cor do Card: </label>
+                <select name="corCard" id="corCard">
+                    <option value="">---Selecione---</option>
+                    <option value="G" <?=$corCard == "G"?"selected":""?>>Verde</option>
+                    <option value="R"<?=$corCard == "R"?"selected":""?>>Vermelho</option>
+                    <option value="Y"<?=$corCard == "Y"?"selected":""?>>Amarelo</option>
+                    <option value="P"<?=$corCard == "P"?"selected":""?>>Roxo</option>
+                    <option value="A"<?=$corCard == "A"?"selected":""?>>Aleatório</option>
+                </select>
+            </div>
 
-        <div style="margin-bottom: 10px;">
-            <label for="linkMusica">Link da Musica: </label>
-            <input type="text" name="linkMusica" id="linkMusica" value="<?= $linkMusica ?>"/>
-        </div>
+            <div style="margin-bottom: 10px;">
+                <label for="linkMusica">Link da Musica: </label>
+                <input type="text" name="linkMusica" id="linkMusica" value="<?= $linkMusica ?>"/>
+            </div>
 
-        <div style="margin-bottom: 10px;">
-            <button type="submit">Gravar</button>
-        </div>
-    </form>
-   
+            <div style="margin-bottom: 10px;">
+                <button type="submit">Gravar</button>
+            </div>
+        </form>
     
-    <div id="divErro" style="color: red;">
-        <?php
-            print $msgErro;
-        ?>
+        
+        <div id="divErro" style="color: red;">
+            <?php
+                print $msgErro;
+            ?>
+        </div>
+
     </div>
 
     <!-- AQUI É A PARTE DA LISTA -->
-    <h1>Listagem</h1>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Gênero</th>
-            <th>Artista</th>
-            <th>Link da Imagem</th>
-            <th>Cor do Card</th>
-            <th>Link da Música</th>
-            <th>Exclusão</th>
-        </tr>
+    <div class="musica-listada">
+        <h1>Listagem</h1>
 
-        <?php 
-        $musicaDao = new MusicaDAO();
-        $arrayMus = $musicaDao->listarMusicas();
-        foreach($arrayMus as $mus){
-        ?>
+        <table border="1">
             <tr>
-                <td><?= $mus->getId() ?></td>
-                <td><?= $mus->getTitulo() ?></td>
-                <td><?= $mus->getGeneroDetalhado() ?></td>
-                <td><?= $mus->getArtista() ?></td>
-                <td><a href="<?= $mus->getImagem() ?>">Link da Imagem</a></td>
-                <td><?= $mus->getCorCardDetalhado()?></td> 
-                <td><a href="<?= $mus->getLinkMusica() ?>">Link da Música</a></td>
-                <td>
-                    <a href="Excluir.php?id=<?= $mus->getId()?>" 
-                        onclick="return confirm('Confirma a exclusão?');">
-                        Excluir</a>
-                </td>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Gênero</th>
+                <th>Artista</th>
+                <th>Link da Imagem</th>
+                <th>Cor do Card</th>
+                <th>Link da Música</th>
+                <th>Exclusão</th>
             </tr>
-        <?php }?> 
-        <!-- end do foreach -->
-    </table>
-    <a href="Cards.php">Cards</a>
+
+            <?php 
+            $musicaDao = new MusicaDAO();
+            $arrayMus = $musicaDao->listarMusicas();
+            foreach($arrayMus as $mus){
+            ?>
+                <tr>
+                    <td><?= $mus->getId() ?></td>
+                    <td><?= $mus->getTitulo() ?></td>
+                    <td><?= $mus->getGeneroDetalhado() ?></td>
+                    <td><?= $mus->getArtista() ?></td>
+                    <td><a href="<?= $mus->getImagem() ?>">Link da Imagem</a></td>
+                    <td><?= $mus->getCorCardDetalhado()?></td> 
+                    <td><a href="<?= $mus->getLinkMusica() ?>">Link da Música</a></td>
+                    <td>
+                        <a href="Excluir.php?id=<?= $mus->getId()?>" 
+                            onclick="return confirm('Confirma a exclusão?');">
+                            Excluir</a>
+                    </td>
+                </tr>
+            <?php }?> 
+            <!-- end do foreach -->
+        </table>
+        <a href="Cards.php" class="ver-cards">Cards</a>
+
+    </div>
+
+</div>
+
 </body>
 </html>
