@@ -192,3 +192,18 @@ body
   letter-spacing: 1px;
 
 }
+
+.input-erro 
+{
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+.mensagem-erro 
+{
+    color: red;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 12px;
+    font-family: Arial, sans-serif;
+}
