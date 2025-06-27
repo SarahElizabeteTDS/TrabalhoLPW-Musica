@@ -111,9 +111,7 @@ class Musica
             return "Yellow";
         else if($this->corCard == 'P') 
             return "Purple";
-        else if($this->corCard == 'B') 
-            return "Blue";
-        else
+        else if($this->corCard == 'A') 
             return $cores[sort($cores)];
     }
 
