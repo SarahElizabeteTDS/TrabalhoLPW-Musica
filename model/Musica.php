@@ -95,7 +95,7 @@ class Musica
 
     public function getCorCard()
     {
-        return $this->corCard;
+        return $this->getCorCardDetalhado();
     }
 
     public function getCorCardDetalhado()
