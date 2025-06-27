@@ -112,7 +112,7 @@ class Musica
         else if($this->corCard == 'P') 
             return "Purple";
         else if($this->corCard == 'A') 
-            return $cores[sort($cores)];
+            return $cores[sort($cores)]; //aqui ele salva A no BD, mas o que aparece é a cor sorteada uma única vez. Por isso o A no BD não muda.
     }
 
     public function setCorCard($corCard): self
