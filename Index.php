@@ -91,9 +91,10 @@ if (isset($_POST["titulo"])) {
     <div class="form-container">
 
         <!-- AQUI É A PARTE DO FORMULÁRIO -->
-        <h1>Formulário</h1>
 
-            <form action="" method="POST">
+        <form action="" method="POST">
+
+        <h1>Formulário</h1>
         <div>
             <label for="titulo">Título: </label>
             <input type="text" name="titulo" id="titulo"
@@ -181,7 +182,7 @@ if (isset($_POST["titulo"])) {
     </div>
 
     <!-- AQUI É A PARTE DA LISTA -->
-
+    
     <div class="musica-listada">
         <h1>Listagem</h1>
 
